@@ -1,0 +1,4 @@
+{
+    "MONGOURL":"mongodb+srv://alcatraz123:alcatraz123@cluster0.kghe8.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+    "jwtSecret":"mariok"
+}
