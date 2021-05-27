@@ -9,8 +9,11 @@ module.exports= function(req,res,next){
     try{
       const decoded = jwt.verify(token,config.get("jwtSecret"))
       req.user=decoded.user
-      next()  
+      next()
     }catch(err){
-        console.eroor(err.message)
+        console.error(err.message)
+        res.status(400).json({msg:"token not authorized"})
     }
+   
 }
+

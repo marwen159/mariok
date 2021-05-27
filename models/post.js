@@ -45,6 +45,27 @@ const postSchema= new Schema({
             }
         }
     ],
+    reports:[
+        {
+            user:{
+                type:Schema.Types.ObjectId,
+                ref:"users"
+            } ,
+            text:{
+               type:String
+            }, 
+            avatar:{
+                type:String
+            },
+            name:{
+                type:String
+            },
+            date:{
+                type:Date,
+                default:Date.now
+            }
+        }
+    ],
     files:[Object],
     date:{
         type:Date,

@@ -6,6 +6,8 @@ const jwt=require("jsonwebtoken")
 const config=require("config")
 const {check,validationResult}=require("express-validator")
 
+
+
 router.get('/',auth,async(req,res)=>{
     try{
         const user=await User.findById(req.user.id).select("-password")
@@ -56,6 +58,19 @@ router.post("/",[
 
 })
 
+//@access Private
+//@desc delete a particular user
+//@route /api/signup/:id
+
+router.delete("/:id",async(req,res)=>{
+    try{
+        await User.findByIdAndDelete(req.params.id)
+        res.json({msg:"Deleted User Succesfully"})
+    }catch(err){
+        console.error(err.message)
+        res.status(500).json({msg:'Server Eroor'})
+    }
+})
 
 
 
